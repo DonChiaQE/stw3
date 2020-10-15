@@ -41,7 +41,7 @@ export default {
             this.pushID(payload)
         },
         getQuizzes () {
-            const path = 'http://localhost:5000/quiz'
+            const path = 'https://CarpalRemoteMath.lizardon.repl.co/quiz'
             axios.get(path)
             .then((res) => {
                 this.quizzes = res.data.quizzes

@@ -50,7 +50,7 @@ export default {
     },
     methods: {
       getUsers () {
-            const path = 'http://localhost:5000/receiveUsername'
+            const path = 'https://CarpalRemoteMath.lizardon.repl.co/receiveUsername'
             axios.get(path)
             .then((res) => {
                 this.users = res.data.users

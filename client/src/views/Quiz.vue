@@ -23,7 +23,7 @@
             </div>
             <input type="text" v-model="username" style="height: 50px; width: 250px;" placeholder="username">
             <div class="m-4">
-                <router-link :to="{ name: 'Score', params: { player_score: points } }">
+                <router-link to="/">
                     <button
                     type="submit"
                     :disabled="isDisable(username)"
@@ -66,7 +66,7 @@ export default {
             this.pushIDAnswers(payload)
         },
         getQuestions () {
-            const path = 'http://localhost:5000/receiveQuestions'
+            const path = 'https://CarpalRemoteMath.lizardon.repl.co/receiveQuestions'
             axios.get(path)
             .then((res) => {
                 this.questions = res.data.questions
@@ -76,7 +76,7 @@ export default {
             })
         },
         getAnswers () {
-            const path = 'http://localhost:5000/receiveAnswers'
+            const path = 'https://CarpalRemoteMath.lizardon.repl.co/receiveAnswers'
             axios.get(path)
             .then((res) => {
                 this.answers = res.data.answers
@@ -86,7 +86,7 @@ export default {
             })
         },
         pushIDQuestions (payload) {
-            const path = 'http://localhost:5000/receiveQuestions'
+            const path = 'https://CarpalRemoteMath.lizardon.repl.co/receiveQuestions'
             axios.post(path, payload)
             .then(() => {
                 console.log('sent!')
@@ -99,7 +99,7 @@ export default {
             })
         },
         pushIDAnswers (payload) {
-            const path = 'http://localhost:5000/receiveAnswers'
+            const path = 'https://CarpalRemoteMath.lizardon.repl.co/receiveAnswers'
             axios.post(path, payload)
             .then(() => {
                 console.log('sent!')
@@ -112,7 +112,7 @@ export default {
             })
         },
         createAnswers () {
-            const path = 'http://localhost:5000/receiveAnswersSubmitted'
+            const path = 'https://CarpalRemoteMath.lizardon.repl.co/receiveAnswersSubmitted'
             const payload = {
                 answers: this.answersSubmitted
             }
@@ -128,7 +128,7 @@ export default {
             })
         },
         pullPoints() {
-            const path = 'http://localhost:5000/receiveAnswersSubmitted'
+            const path = 'https://CarpalRemoteMath.lizardon.repl.co/receiveAnswersSubmitted'
             axios.get(path)
             .then((res) => {
                 this.points = res.data.points
@@ -138,7 +138,7 @@ export default {
             })
         },
         pushUsername() {
-            const path = 'http://localhost:5000/receiveUsername'
+            const path = 'https://CarpalRemoteMath.lizardon.repl.co/receiveUsername'
             const payload = {
                 username: this.username
             }
